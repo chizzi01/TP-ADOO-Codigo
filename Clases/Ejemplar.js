@@ -1,3 +1,5 @@
+import { Libro } from "./Libro.js";
+
 // Enumeración para los tipos de ejemplar
 const TipoEjemplar = {
     Revista: "Revista",
@@ -6,60 +8,55 @@ const TipoEjemplar = {
     Libro: "Libro",
   };
   
-  // Clase abstracta Ejemplar
-  class Ejemplar {
-    constructor(titulo, autor, descripcion, tipoEjemplar, fechaPublicacion, ubicacion) {
-      if (this.constructor === Ejemplar) {
-        throw new Error("No se puede instanciar una clase abstracta.");
-      }
-  
+  class Ejemplar extends Ubicacion {
+    constructor(titulo, autor, descripcion, fechaPublicacion, TipoEjemplar , sucursal, direccion, zona) {
+      super(sucursal, direccion, zona);
       this.titulo = titulo;
       this.autor = autor;
       this.descripcion = descripcion;
-      this.tipoEjemplar = tipoEjemplar;
       this.fechaPublicacion = fechaPublicacion;
-      this.ubicacion = ubicacion;
+      this.tipoEjemplar = TipoEjemplar;
     }
   
-    // Método abstracto para calcular el número de días de préstamo
     diasPrestamo() {
-      throw new Error("Método abstracto 'diasPrestamo' debe ser implementado en subclases.");
+      if(this.tipoEjemplar === TipoEjemplar.RevistaEspecializada || this.tipoEjemplar === TipoEjemplar.Revista || this.tipoEjemplar === TipoEjemplar.Diario ){
+        return 5;
+      }
+      if(this.tipoEjemplar === TipoEjemplar.Libro){
+        return 10;
+      }
+      // Implementa la lógica para calcular los días de préstamo
     }
   
-    // Método para solicitar un ejemplar
-    solicitarEjemplar() {
+    solicitar(solicitarEjemplar) {
+      // Implementa la lógica para solicitar un ejemplar
       console.log(`Solicitando ejemplar: ${this.titulo}`);
-    }
-  
-    // Método abstracto para calcular el costo de préstamo
-    calcularPrestamo() {
-      throw new Error("Método abstracto 'calcularPrestamo' debe ser implementado en subclases.");
-    }
-  }
-  
-  // Ejemplo de subclase de Ejemplar (Libro)
-  class Libro extends Ejemplar {
-    constructor(titulo, autor, descripcion, fechaPublicacion, ubicacion) {
-      super(titulo, autor, descripcion, TipoEjemplar.Libro, fechaPublicacion, ubicacion);
-    }
-  
-    diasPrestamo() {
-      // Implementar la lógica para calcular el número de días de préstamo para libros
-      return 10;
+      solicitarEjemplar.solicitarEjemplar(this);
     }
   
     calcularPrestamo() {
-      // Implementar la lógica para calcular el costo de préstamo para libros
-      return 5.0;
+      // Implementa la lógica para calcular el préstamo
+      const diasPrestamo = this.diasPrestamo();
+      console.log(`El préstamo de "${this.titulo}" es de ${diasPrestamo} días.`);
     }
   }
   
-  // Ejemplo de uso de la clase Libro
-  const libro = new Libro("El Gran Gatsby", "F. Scott Fitzgerald", "Una novela clásica", "2023-01-15", "Sección A");
   
-  console.log(`Título: ${libro.titulo}`);
-  console.log(`Autor: ${libro.autor}`);
-  console.log(`Tipo de Ejemplar: ${libro.tipoEjemplar}`);
-  console.log(`Días de Préstamo: ${libro.diasPrestamo()}`);
-  console.log(`Costo de Préstamo: $${libro.calcularPrestamo()}`);
-  
+// Ejemplo de uso
+const ubicacionTienda = new Ubicacion('Tienda 1', 'Calle Principal', 'Zona A');
+
+const ejemplar = new Ejemplar('Título del Ejemplar', 'Autor del Ejemplar', 'Descripción', new Date(), ubicacionTienda.sucursal, ubicacionTienda.direccion, ubicacionTienda.zona);
+
+ejemplar.calcularPrestamo();
+ejemplar.obtenerUbicacion('Tienda 1');
+
+// Clase para solicitar ejemplares
+class SolicitarEjemplar {
+  solicitarEjemplar(ejemplar) {
+    console.log(`Solicitud realizada para ejemplar: ${ejemplar.titulo}`);
+  }
+}
+
+const solicitarEjemplar = new SolicitarEjemplar();
+
+ejemplar.solicitar(solicitarEjemplar);
