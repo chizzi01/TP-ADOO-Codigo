@@ -61,18 +61,18 @@ class Usuario {
 }
 
 // Ejemplo de uso:
-const usuario1 = new Usuario(1, "Juan", "Pérez", "123456", "123456789", "juan@example.com", "123-456-7890");
-usuario1.crearCuenta();
+// const usuario1 = new Usuario(1, "Juan", "Pérez", "123456", "123456789", "juan@example.com", "123-456-7890");
+// usuario1.crearCuenta();
 
-// Intento de inicio de sesión
-const username = "Juan";
-const password = "123456";
-const loginExitoso = usuario1.login(username, password);
+// // Intento de inicio de sesión
+// const username = "Juan";
+// const password = "123456";
+// const loginExitoso = usuario1.login(username, password);
 
-if (loginExitoso) {
-    console.log("Inicio de sesión exitoso.");
-} else {
-    console.log("Credenciales incorrectas. Inicio de sesión fallido.");
-}
+// if (loginExitoso) {
+//     console.log("Inicio de sesión exitoso.");
+// } else {
+//     console.log("Credenciales incorrectas. Inicio de sesión fallido.");
+// }
 
 module.exports = Usuario;
