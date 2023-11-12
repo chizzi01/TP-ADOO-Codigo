@@ -1,3 +1,6 @@
+const Usuario = require('./Usuario');
+const Ejemplar = require('./Ejemplar');
+
 class ModuloBiblioteca {
     constructor() {
       this.ejemplares = [];
@@ -46,11 +49,11 @@ class ModuloBiblioteca {
   // Clase Ejemplar (asume que está definida)
   
   // Ejemplo de uso
-  const moduloBiblioteca = new ModuloBiblioteca();
+  // const moduloBiblioteca = new ModuloBiblioteca();
   
-  moduloBiblioteca.configurarEstablecimiento('Biblioteca Pública');
+  // moduloBiblioteca.configurarEstablecimiento('Biblioteca Pública');
   
-  const usuario = moduloBiblioteca.registrarUsuario('Usuario1', 'contraseña123');
+  // const usuario = moduloBiblioteca.registrarUsuario('Usuario1', 'contraseña123');
   
-  const ejemplar = moduloBiblioteca.buscarEjemplar('Libro', 'Autor', new Date(), 'Libro');
+  // const ejemplar = moduloBiblioteca.buscarEjemplar('Libro', 'Autor', new Date(), 'Libro');
   
