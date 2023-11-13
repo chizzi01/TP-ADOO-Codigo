@@ -10,9 +10,16 @@ const MedioNotificacion = {
 
 // Clase Socio que hereda de Usuario
 class Socio extends Usuario {
+  #historialPrestamos = [];
   constructor(idUsuario, nombre, apellido, password, dni, mail, telefono, medioNotificacion) {
     super(idUsuario, nombre, apellido, password, dni, mail, telefono);
     this.medioNotificacion = medioNotificacion;
+  }
+
+  historialPrestamos(historialPrestamos) {
+    // Implementar la lógica para obtener el historial de préstamos del socio
+    this.#historialPrestamos = historialPrestamos ;
+    console.log("Historial de préstamos del socio" + this.#historialPrestamos);
   }
 
   // Método para buscar ejemplar con parámetros y elegir el medio de notificación

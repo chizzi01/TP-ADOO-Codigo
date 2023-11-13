@@ -1,7 +1,16 @@
   // Clase Beneficio
-  const StrategyParametro = require('../Clases/iStrategyParametro');
-  class Beneficio extends StrategyParametro {
-    strategyParametro(strategyPrestamo) {
-      strategyPrestamo.aplicarBeneficio();
+const PrestamoDetalle = require('../Clases/PrestamoDetalle');
+
+  // const StrategyParametro = require('../Clases/iStrategyParametro');
+  class Beneficio {
+    aplicarBeneficio() {
+      //dias totales +1
+      const detalle = new PrestamoDetalle();
+      detalle.setParametrosPrestamo(detalle.getParametrosPrestamo() + 1);
+      console.log('Aplicando estrategia Beneficio');
+      console.log(detalle.getParametrosPrestamo());
     }
+
   }
+
+  module.exports = Beneficio;

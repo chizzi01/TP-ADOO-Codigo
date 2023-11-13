@@ -40,6 +40,43 @@ class PrestamoDetalle {
 
   }
 
+  calcularDiasRetraso() {
+    // Calcula la diferencia de días entre la fecha de devolución actual y la fecha planificada
+    // Si es negativo, significa que se devolvió antes del plazo y no hay retraso
+    const diasRetraso = Math.max(0, Math.ceil((this.#fechaVencimiento - this.#fechaDevolucion) / (1000 * 60 * 60 * 24)));
+    return diasRetraso;
+  }
+
+  aplicarPenalizacion() {
+    const diasRetraso = this.calcularDiasRetraso();
+
+    if (diasRetraso > 0) {
+      // Implementa la lógica para aplicar la penalización según los días de retraso
+      // Puedes descontar un día de préstamo general por cada día de retraso, por ejemplo
+      this.diasPrestamo -= diasRetraso;
+
+      if (this.diasPrestamo < 0) {
+        // Si el socio supera el plazo inicial, queda suspendido
+        this.suspenderSocio();
+      }
+    }
+  }
+
+  getParametrosPrestamo() {
+    return this.#parametrosPrestamo;
+  }
+
+  setParametrosPrestamo(value) {
+    this.#parametrosPrestamo = value;
+  }
+
+  suspenderSocio() {
+    // Implementa la lógica para suspender al socio
+    // Esto podría incluir ajustes adicionales según tus requisitos
+    this.socio.suspender();
+  }
+
+
   getIdPrestamo() {
     return this.#idPrestamo;
   }

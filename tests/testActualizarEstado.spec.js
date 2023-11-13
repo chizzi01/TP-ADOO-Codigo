@@ -2,7 +2,7 @@ const PrestamoDetalle = require('../Clases/PrestamoDetalle');
 
 describe('PrestamoDetalle', () => {
     test('actualizarEstado() debe actualizar el estado de un prestamo correctamente', () => {
-        const detalle = new PrestamoDetalle(1, '02/10/2023', null, 'NoDisponible', 'Parámetros del préstamo');
+        const detalle = new PrestamoDetalle(1, '02/10/2023', null, 'NoDisponible', 5 + "dias");
 
 
         if (detalle.getFechaDevolucion() != null) {

@@ -1,8 +1,11 @@
 // Interfaz para StrategyParametro
-class StrategyParametro {
+const SuperaPlazo = require('../Clases/SuperaPlazo');
+const Beneficio = require('../Clases/Beneficio');
+const PlazoNormal = require('../Clases/PlazoNormal');
+class iStrategyParametro {
     strategyParametro(strategyPrestamo) {
-      
-      // Método que será implementado por las estrategias concretas
-    }
+      console.log("StrategyParametro:" + strategyPrestamo);
   }
-  
+}
+
+module.exports = iStrategyParametro;

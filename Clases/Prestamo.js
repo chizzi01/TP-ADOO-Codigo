@@ -30,18 +30,18 @@ class Prestamo {
   
 
   // Ejemplo de uso
-const socio = new Socio(1, 'Juan', 'Pérez');
-const ejemplar = 'Libro - Título del libro';
+// const socio = new Socio(1, 'Juan', 'Pérez');
+// const ejemplar = 'Libro - Título del libro';
 
-const prestamo = new Prestamo(1, new Date(), socio, ejemplar);
-const fechaVencimiento = new Date(); // Fecha de vencimiento simulada
+// const prestamo = new Prestamo(1, new Date(), socio, ejemplar);
+// const fechaVencimiento = new Date(); // Fecha de vencimiento simulada
 
-prestamo.generarPrestamoDetalle(fechaVencimiento, 'Parámetros del préstamo');
+// prestamo.generarPrestamoDetalle(fechaVencimiento, 'Parámetros del préstamo');
 
-console.log('Préstamo activo:', prestamo.prestamoDetalle);
+// console.log('Préstamo activo:', prestamo.prestamoDetalle);
 
-// Simulación de devolución
-const fechaDevolucion = new Date();
-prestamo.devolucion(fechaDevolucion);
+// // Simulación de devolución
+// const fechaDevolucion = new Date();
+// prestamo.devolucion(fechaDevolucion);
 
-console.log('Préstamo devuelto:', prestamo.prestamoDetalle);
+// console.log('Préstamo devuelto:', prestamo.prestamoDetalle);
