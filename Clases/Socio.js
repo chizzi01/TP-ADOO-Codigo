@@ -11,9 +11,25 @@ const MedioNotificacion = {
 // Clase Socio que hereda de Usuario
 class Socio extends Usuario {
   #historialPrestamos = [];
+  #medioNotificacion;
+  #idUsuario;
+  #nombre;
+  #apellido;
+  #password;
+  #dni;
+  #mail;
+  #telefono;
+
   constructor(idUsuario, nombre, apellido, password, dni, mail, telefono, medioNotificacion) {
     super(idUsuario, nombre, apellido, password, dni, mail, telefono);
-    this.medioNotificacion = medioNotificacion;
+    this.#medioNotificacion = medioNotificacion;
+    this.#idUsuario = idUsuario;
+    this.#nombre = nombre;
+    this.#apellido = apellido;
+    this.#password = password;
+    this.#dni = dni;
+    this.#mail = mail;
+    this.#telefono = telefono;
   }
 
   historialPrestamos(historialPrestamos) {
@@ -33,31 +49,92 @@ class Socio extends Usuario {
     const ubicacion = new Ubicacion("Sucursal", "Dirección", "Zona");
     ubicacion.obtenerUbicacion();
 
-    const ejemplarEncontrado = true;
-
-    if (ejemplarEncontrado) {
-      const mensaje = `Ejemplar encontrado: ${titulo} de ${autor}. Disponible en la categoría ${tipoEjemplar}.`;
-
-      // Elegir el medio de notificación
-      if (this.medioNotificacion === MedioNotificacion.SMS) {
-        // Implementar la lógica para enviar un SMS
-        console.log(`SMS: ${mensaje}`);
-      } else if (this.medioNotificacion === MedioNotificacion.Whatsapp) {
-        // Implementar la lógica para enviar un mensaje por WhatsApp
-        console.log(`WhatsApp: ${mensaje}`);
-      } else if (this.medioNotificacion === MedioNotificacion.Email) {
-        // Implementar la lógica para enviar un correo electrónico
-        console.log(`Email: ${mensaje}`);
-      } else {
-        console.log("Ejemplar no encontrado.");
-      }
-    }
   }
 
   getHistorialPrestamos(historialPrestamos) {
     this.#historialPrestamos = historialPrestamos;
     console.log("Historial de préstamos del socio:", this.#historialPrestamos);
   }
+
+  getMedioNotificacion() {
+    return this.#medioNotificacion;
+  }
+
+  getNombre() {
+    return this.#nombre;
+  }
+
+  getApellido() {
+    return this.#apellido;
+  }
+
+  getDocumento() {
+    return this.#dni;
+  } 
+
+  getMail() {
+    return this.#mail;
+  }
+
+  getTelefono() {
+    return this.#telefono;
+  }
+
+  getPassword() {
+    return this.#password;
+  }
+
+  setMedioNotificacion(medioNotificacion) {
+    this.#medioNotificacion = medioNotificacion;
+  }
+
+  setNombre(nombre) {
+    this.#nombre = nombre;
+  }
+
+  setApellido(apellido) {
+    this.#apellido = apellido;
+  }
+
+  setDocumento(dni) {
+
+    this.#dni = dni;
+
+  }
+
+  setMail(mail) {
+    this.#mail = mail;
+  }
+
+  setTelefono(telefono) {
+    this.#telefono = telefono;
+  }
+
+  setPassword(password) {
+    this.#password = password;
+  }
+
+  getDatosActuales() {
+    return {
+      Nombre: this.getNombre(),
+      Apellido: this.getApellido(),
+      Password: this.getPassword(),
+      DNI: this.getDocumento(),
+      Telefono: this.getTelefono(),
+      Correo: this.getMail(),
+      'Medio de Notificación': this.getMedioNotificacion(),
+    };
+  }
+
+
+  cambiarDatos(nombre, apellido, dni, mail, telefono) {
+    this.#nombre = nombre;
+    this.#apellido = apellido;
+    this.#dni = dni;
+    this.#mail = mail;
+    this.#telefono = telefono;
+  }
+
   
 }
 

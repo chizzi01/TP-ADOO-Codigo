@@ -23,3 +23,5 @@ class Sujeto extends iObserverNotifica {
     });
   }
 }
+
+module.exports = Sujeto;

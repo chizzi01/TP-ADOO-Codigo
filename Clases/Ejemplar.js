@@ -89,10 +89,8 @@ const TipoEjemplar = {
 
   }
 
-  module.exports = {
-    Ejemplar,
-    TipoEjemplar, // Si también estás exportando TipoEjemplar
-  };
+  module.exports = Ejemplar;
+  module.exports.TipoEjemplar = TipoEjemplar;
   
   
 // Ejemplo de uso
