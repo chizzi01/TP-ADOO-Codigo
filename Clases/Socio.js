@@ -53,6 +53,12 @@ class Socio extends Usuario {
       }
     }
   }
+
+  getHistorialPrestamos(historialPrestamos) {
+    this.#historialPrestamos = historialPrestamos;
+    console.log("Historial de préstamos del socio:", this.#historialPrestamos);
+  }
+  
 }
 
 // Ejemplo de uso:
@@ -62,7 +68,4 @@ class Socio extends Usuario {
 // // Búsqueda de ejemplar y notificación
 // socio1.buscarEjemplar("Libro interesante", "Autor Desconocido", "2023-01-01", "Libro");
 
-module.exports = {
-  Socio,
-  MedioNotificacion,
-};
+module.exports = Socio;

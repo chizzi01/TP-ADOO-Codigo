@@ -27,6 +27,8 @@ class Prestamo {
       }
     }
   }
+
+module.exports = Prestamo;
   
 
   // Ejemplo de uso
