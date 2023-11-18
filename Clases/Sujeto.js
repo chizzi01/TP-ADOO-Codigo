@@ -1,4 +1,6 @@
 // Clase Sujeto que implementa Observer
+const iObserverNotifica = require('./iObserverNotifica');
+
 class Sujeto extends iObserverNotifica {
   constructor() {
     super();
@@ -16,11 +18,18 @@ class Sujeto extends iObserverNotifica {
     }
   }
 
+  notificarEstado(mensaje, medioNotificacion) {
+    console.log(`Notificando estado de prestamo al observer: ${mensaje}`);
+    console.log(`Notificando por medio al observer: ${medioNotificacion}`);
+    // Método que será implementado por las clases que observan
+  }
+
   observerNotifica(mensaje) {
     console.log(`Notificando a los socios:`);
     this.notificaSocios.forEach((socio) => {
       socio.recibirNotificacion(mensaje);
     });
+    
   }
 }
 
