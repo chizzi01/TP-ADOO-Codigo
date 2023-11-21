@@ -1,7 +1,7 @@
 // Clase NoDisponible
 class NoDisponible extends iEstadosLibros {
   libroDevuelto(prestamoDetalle) {
-    // No implementa la lógica para libros devueltos en este estado
+
   }
 
   libroNoDisponible(prestamoDetalle) {
@@ -9,6 +9,6 @@ class NoDisponible extends iEstadosLibros {
   }
 
   libroFueraDeTermino(prestamoDetalle) {
-    // No implementa la lógica para libros fuera de término en este estado
+
   }
 }

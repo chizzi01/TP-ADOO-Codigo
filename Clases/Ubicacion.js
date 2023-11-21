@@ -21,11 +21,6 @@ class Ubicacion {
       return this.#zona;
     } 
 
-    // obtenerUbicacion() {
-    //   console.log(`Sucursal: ${this.#sucursal}`);
-    //   console.log(`Dirección: ${this.#direccion}`);
-    //   console.log(`Zona: ${this.#zona}`);
-    // }
   }
   
 

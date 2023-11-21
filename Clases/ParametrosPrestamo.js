@@ -3,30 +3,29 @@ class ParametrosPrestamo {
     this.strategyParametro = strategyParametro;
   }
 
-  // Método para establecer la estrategia
+
   setStrategyParametro(strategyParametro) {
     this.strategyParametro = strategyParametro;
   }
 
-  // Método para aplicar la estrategia
+
   aplicarEstrategia(historialPrestamos, beneficio, superaPlazo) {
     let contador = 0;
 
     for (let i = 0; i < historialPrestamos.length; i++) {
       const fechaVencimientoString = historialPrestamos[i].getFechaVencimiento();
 
-      // Dividir la cadena en día, mes y año
       const [dia, mes, año] = fechaVencimientoString.split('/');
 
-      // Crear un objeto de fecha usando el formato YYYY, MM, DD
+
       const fechaVencimiento = new Date(`${mes}-${dia}-${año}`);
 
       const fechaDevolucionString = historialPrestamos[i].getFechaDevolucion();
 
-      // Dividir la cadena en día, mes y año
+
       const [dia1, mes1, año1] = fechaDevolucionString.split('/');
 
-      // Crear un objeto de fecha usando el formato YYYY, MM, DD
+
       const fechaDevolucion = new Date(`${mes1}-${dia1}-${año1}`);
 
 

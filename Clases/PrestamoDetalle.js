@@ -1,7 +1,6 @@
 // Clase PrestamoDetalle
 
 class PrestamoDetalle {
-  // Constructor de la clase
   #idPrestamo;
   #fechaVencimiento;
   #fechaDevolucion;
@@ -41,8 +40,6 @@ class PrestamoDetalle {
   }
 
   calcularDiasRetraso() {
-    // Calcula la diferencia de días entre la fecha de devolución actual y la fecha planificada
-    // Si es negativo, significa que se devolvió antes del plazo y no hay retraso
     const diasRetraso = Math.max(0, Math.ceil((this.#fechaVencimiento - this.#fechaDevolucion) / (1000 * 60 * 60 * 24)));
     return diasRetraso;
   }
@@ -51,8 +48,6 @@ class PrestamoDetalle {
     const diasRetraso = this.calcularDiasRetraso();
 
     if (diasRetraso > 0) {
-      // Implementa la lógica para aplicar la penalización según los días de retraso
-      // Puedes descontar un día de préstamo general por cada día de retraso, por ejemplo
       this.diasPrestamo -= diasRetraso;
 
       if (this.diasPrestamo < 0) {
@@ -71,8 +66,6 @@ class PrestamoDetalle {
   }
 
   suspenderSocio() {
-    // Implementa la lógica para suspender al socio
-    // Esto podría incluir ajustes adicionales según tus requisitos
     this.socio.suspender();
   }
 
@@ -98,20 +91,4 @@ class PrestamoDetalle {
   }
 }
 
-// Ejemplo de uso
-// const prestamoDetalle = new PrestamoDetalle(1, new Date(), null, new NoDisponible(), 'Parámetros del préstamo');
-
-// // Agregar observador (puede ser una instancia de Observador)
-// const observador1 = {
-//   actualizar: (mensaje) => {
-//     console.log(`Observador 1: ${mensaje}`);
-//   },
-// };
-// prestamoDetalle.agregarObservador(observador1);
-
-// console.log('Estado actual:', prestamoDetalle.estado.constructor.name);
-
-// // Cambiar el estado
-// prestamoDetalle.cambiarEstado(new Devueltos());
-// prestamoDetalle.cambiarEstado(new FueraDeTermino());
 module.exports = PrestamoDetalle;

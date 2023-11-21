@@ -6,11 +6,6 @@ describe('Socio', () => {
     test('testVisualizarHistorialPrestamos', () => {
         const socio = new Socio();
         const historialPrestamos = [
-            // this.idPrestamo = idPrestamo;
-            // this.fechaPrestamo = fechaPrestamo;
-            // this.socio = socio;
-            // this.ejemplar = ejemplar;
-            // this.prestamoDetalle = null;
             new Prestamo(1, new Date(), socio, 'Libro - Título del libro', 5),
             new Prestamo(2, new Date(), socio, 'Libro - Título del libro', 5),
             new Prestamo(3, new Date(), socio, 'Libro - Título del libro', 5),

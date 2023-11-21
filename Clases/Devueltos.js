@@ -5,10 +5,8 @@ class Devueltos extends EstadosLibros {
     }
   
     libroNoDisponible(prestamoDetalle) {
-      // No implementa la lógica para libros no disponibles en este estado
     }
   
     libroFueraDeTermino(prestamoDetalle) {
-      // No implementa la lógica para libros fuera de término en este estado
     }
   }

@@ -1,7 +1,5 @@
 const { Ubicacion } = require("./Ubicacion");
 
-
-// Enumeración para los tipos de ejemplar
 const TipoEjemplar = {
     Revista: "Revista",
     RevistaEspecializada: "Revista Especializada",
@@ -31,19 +29,16 @@ const TipoEjemplar = {
       if (this.#tipoEjemplar === TipoEjemplar.Libro) {
         return 10;
       }
-      // Puedes manejar el caso predeterminado devolviendo un valor por defecto o lanzando un error según tus necesidades
-      return 0; // Cambia esto según tus necesidades
+      return 0; 
     }
     
   
     solicitar(solicitarEjemplar) {
-      // Implementa la lógica para solicitar un ejemplar
       console.log(`Solicitando ejemplar: ${this.#titulo}`);
       solicitarEjemplar.solicitarEjemplar(this);
     }
   
     calcularPrestamo() {
-      // Implementa la lógica para calcular el préstamo
       console.log(`El préstamo de "${this.#titulo}" es de ${this.diasPrestamo()} días.`);
     }
 
@@ -92,22 +87,3 @@ const TipoEjemplar = {
   module.exports = Ejemplar;
   module.exports.TipoEjemplar = TipoEjemplar;
   
-  
-// Ejemplo de uso
-// const ubicacionTienda = new Ubicacion('Seccion 1', 'Calle Principal', 'Zona A');
-
-// const ejemplar = new Ejemplar('Pinocho', 'Carlo Collodi', 'Pinocho es un muñeco de madera que cobra vida.', '20/10/2023', 'Libro' ,  ubicacionTienda.sucursal, ubicacionTienda.direccion, ubicacionTienda.zona);
-
-// ejemplar.calcularPrestamo();
-// ejemplar.obtenerUbicacion('Seccion 1');
-
-// // Clase para solicitar ejemplares
-// class SolicitarEjemplar {
-//   solicitarEjemplar(ejemplar) {
-//     console.log(`Solicitud realizada para ejemplar: ${ejemplar.getTitulo()}`);
-//   }
-// }
-
-// const solicitarEjemplar = new SolicitarEjemplar();
-
-// ejemplar.solicitar(solicitarEjemplar);

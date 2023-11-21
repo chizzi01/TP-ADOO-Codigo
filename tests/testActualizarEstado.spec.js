@@ -15,11 +15,7 @@ describe('PrestamoDetalle', () => {
                 detalle.actualizarEstado('Fuera de termino');
             }
         }
-
-        
-
     });
-    //se espera que este devuelto o no disponible o fuera de termino
 
 
 });

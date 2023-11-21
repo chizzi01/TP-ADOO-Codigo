@@ -1,7 +1,7 @@
 const { Ubicacion } = require("./Ubicacion");
 const  Usuario  = require("./Usuario");
 
-// Enumeración para los medios de notificación
+
 const MedioNotificacion = {
   SMS: "SMS",
   Whatsapp: "Whatsapp",
@@ -33,14 +33,14 @@ class Socio extends Usuario {
   }
 
   historialPrestamos(historialPrestamos) {
-    // Implementar la lógica para obtener el historial de préstamos del socio
+
     this.#historialPrestamos = historialPrestamos ;
     console.log("Historial de préstamos del socio" + this.#historialPrestamos);
   }
 
-  // Método para buscar ejemplar con parámetros y elegir el medio de notificación
+
   buscarEjemplar(titulo, autor, fechaDePublicacion, tipoEjemplar) {
-    // Implementar la lógica para buscar ejemplar 
+
     console.log(`Buscando ejemplar: ${titulo} de ${autor}.`);
     console.log(`Fecha de publicación: ${fechaDePublicacion}.`);
     console.log(`Tipo de ejemplar: ${tipoEjemplar}.`);
@@ -138,11 +138,5 @@ class Socio extends Usuario {
   
 }
 
-// Ejemplo de uso:
-// const socio1 = new Socio(1, "Maria", "López", "password123", "987654321", "maria@example.com", "987-654-3210", MedioNotificacion.Whatsapp);
-// socio1.crearCuenta();
-
-// // Búsqueda de ejemplar y notificación
-// socio1.buscarEjemplar("Libro interesante", "Autor Desconocido", "2023-01-01", "Libro");
 
 module.exports = Socio;
